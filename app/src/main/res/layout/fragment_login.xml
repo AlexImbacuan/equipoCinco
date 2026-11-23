@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_gray"
+        tools:context=".view.fragment.LoginFragment">
+
+        <!-- Criterion 2: dog head at the top right. It is a vector and its width is a
+             percentage of the screen, so it adapts to any size and density. -->
+        <ImageView
+            android:id="@+id/ivDogHead"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/login_dog_image_description"
+            android:scaleType="fitEnd"
+            android:src="@drawable/dog_head"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="360dp"
+            app:layout_constraintWidth_percent="0.62" />
+
+        <!-- Criterion 3: "DogApp" title, white, bold, centered, external font (Lilita One) -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/lilita_one"
+            android:text="@string/login_title"
+            android:textColor="@color/white"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDogHead" />
+
+        <!-- Criterion 4: Lottie fingerprint animation at the bottom center -->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieFingerprint"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/login_fingerprint_description"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="280dp"
+            app:layout_constraintWidth_percent="0.55"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/fingerprint_scan" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
