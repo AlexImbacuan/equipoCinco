@@ -53,4 +53,15 @@ dependencies {
     //cardview
     implementation("androidx.cardview:cardview:1.0.0")
 
+    // ViewModel + LiveData + Fragment KTX (MVVM)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
+    // Biometric authentication (HU-01 Login)
+    implementation(libs.androidx.biometric)
+
+    // Lottie animations (login fingerprint)
+    implementation(libs.lottie)
+
 }

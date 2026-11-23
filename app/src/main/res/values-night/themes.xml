@@ -1,7 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- The app uses the same dark gray background in light and dark mode. -->
     <style name="Base.Theme.DogApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:windowBackground">@color/dark_gray</item>
+        <item name="android:statusBarColor" tools:targetApi="34">@color/dark_gray</item>
+        <item name="android:navigationBarColor" tools:targetApi="34">@color/dark_gray</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 </resources>
