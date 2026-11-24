@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Light theme for the white form screens (HU-03, HU-05). Applied on the root view so the
+         fields keep dark text and a white popup even when the phone is in dark mode.
+         colorPrimary purple = focused field border. -->
+    <style name="Theme.DogApp.Form" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <!-- Outlined field: gray hint, purple border and floating hint when focused -->
+    <style name="Widget.DogApp.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/purple</item>
+        <item name="hintTextColor">@color/purple</item>
+        <item name="android:textColorHint">@color/hint_gray</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+    </style>
+
+    <!-- Pink rounded button with a left icon (Guardar Cita / Editar Cita) -->
+    <style name="Widget.DogApp.PinkButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/selector_pink_button</item>
+        <item name="android:textColor">@color/selector_pink_button_text</item>
+        <item name="iconTint">@color/selector_pink_button_text</item>
+        <item name="iconGravity">textStart</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:minHeight">60dp</item>
+    </style>
+</resources>

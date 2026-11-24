@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <!-- HU-03 criterion 1: white background -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:theme="@style/Theme.DogApp.Form"
+        tools:context=".view.fragment.NewAppointmentFragment">
+
+        <!-- Criterion 1: custom toolbar with "Nueva Cita" and pink back arrow -->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_custom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="24dp">
+
+                <!-- Criterion 2: pet name, text, max 15 characters -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPetName"
+                    style="@style/Widget.DogApp.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_pet_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPetName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLength="15"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterion 3: breed, AutoCompleteTextView (suggestions after 2 letters) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBreed"
+                    style="@style/Widget.DogApp.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_breed">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/actvBreed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:completionThreshold="2"
+                        android:inputType="text|textCapWords"
+                        android:padding="16dp"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterion 4: owner name, text, max 30 characters -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilOwnerName"
+                    style="@style/Widget.DogApp.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_owner_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOwnerName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLength="30"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterion 5: phone, numbers only, max 10 characters -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/Widget.DogApp.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Criterion 6: symptoms list, "Síntomas" by default -->
+                <Spinner
+                    android:id="@+id/spSymptoms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:entries="@array/symptoms"
+                    android:minHeight="48dp"
+                    android:spinnerMode="dropdown" />
+
+                <!-- Criterion 7: pink rounded button with a left icon, disabled at start -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveAppointment"
+                    style="@style/Widget.DogApp.PinkButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:enabled="false"
+                    android:text="@string/save_appointment"
+                    app:icon="@drawable/ic_save" />
+
+                <!-- Loading while the breed image is fetched and the appointment is saved -->
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:indeterminateTint="@color/pink"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

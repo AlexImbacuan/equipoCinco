@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -63,5 +64,17 @@ dependencies {
 
     // Lottie animations (login fingerprint)
     implementation(libs.lottie)
+
+    // Retrofit + Gson (Dog API, HU-03)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Room (local database, HU-03)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
 }

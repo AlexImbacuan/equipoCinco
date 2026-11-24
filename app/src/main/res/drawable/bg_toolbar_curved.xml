@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark gray toolbar with curved bottom corners (HU-03, HU-04, HU-05) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/dark_gray" />
+    <corners
+        android:bottomLeftRadius="32dp"
+        android:bottomRightRadius="32dp" />
+</shape>
