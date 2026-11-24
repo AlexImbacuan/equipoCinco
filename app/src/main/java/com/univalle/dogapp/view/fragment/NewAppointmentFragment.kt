@@ -1,5 +1,6 @@
 package com.univalle.dogapp.view.fragment
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,7 +34,46 @@ class NewAppointmentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
+        controladores()
         observerViewModel()
+    }
+
+    private fun controladores() {
+        validarDatos()
+        binding.btnSaveAppointment.setOnClickListener {
+            // Criterion 8: the 4 fields are filled but no symptom was chosen
+            // (position 0 is the default "Síntomas" item)
+            if (binding.spSymptoms.selectedItemPosition == 0) {
+                Toast.makeText(context, getString(R.string.select_symptom), Toast.LENGTH_SHORT).show()
+            }
+            // LOGIC-04: save the appointment in Room and go to Home
+        }
+    }
+
+    /**
+     * Criteria 7 and 9: the button is enabled only when pet name, breed, owner name and phone
+     * are filled. When enabled, its text is white (color selector) and bold.
+     */
+    private fun validarDatos() {
+        val listEditText = listOf(
+            binding.etPetName,
+            binding.actvBreed,
+            binding.etOwnerName,
+            binding.etPhone
+        )
+
+        for (editText in listEditText) {
+            editText.addTextChangedListener {
+                val isListFull = listEditText.all {
+                    it.text.toString().isNotBlank() // every field has text
+                }
+                binding.btnSaveAppointment.isEnabled = isListFull
+                binding.btnSaveAppointment.setTypeface(
+                    null,
+                    if (isListFull) Typeface.BOLD else Typeface.NORMAL
+                )
+            }
+        }
     }
 
     private fun observerViewModel() {
