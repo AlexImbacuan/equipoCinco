@@ -24,6 +24,18 @@
         android:id="@+id/homeFragment"
         android:name="com.univalle.dogapp.view.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <!-- HU-02 criterion 4: pink FAB opens Nueva Cita -->
+        <action
+            android:id="@+id/action_homeFragment_to_newAppointmentFragment"
+            app:destination="@id/newAppointmentFragment" />
+    </fragment>
+
+    <!-- HU-03: Nueva Cita -->
+    <fragment
+        android:id="@+id/newAppointmentFragment"
+        android:name="com.univalle.dogapp.view.fragment.NewAppointmentFragment"
+        android:label="fragment_new_appointment"
+        tools:layout="@layout/fragment_new_appointment" />
 
 </navigation>
