@@ -64,4 +64,11 @@ dependencies {
     // Lottie animations (login fingerprint)
     implementation(libs.lottie)
 
+    // Retrofit + Gson (Dog API, HU-03)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
 }
