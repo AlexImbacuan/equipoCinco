@@ -36,6 +36,14 @@
         android:id="@+id/newAppointmentFragment"
         android:name="com.univalle.dogapp.view.fragment.NewAppointmentFragment"
         android:label="fragment_new_appointment"
-        tools:layout="@layout/fragment_new_appointment" />
+        tools:layout="@layout/fragment_new_appointment">
+        <!-- Criterion 10: after saving go to Home; pop the old Home so it is rebuilt
+             with the new appointment and "back" does not return to the form -->
+        <action
+            android:id="@+id/action_newAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

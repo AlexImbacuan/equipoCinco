@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.univalle.dogapp.R
 import com.univalle.dogapp.databinding.FragmentNewAppointmentBinding
+import com.univalle.dogapp.model.Appointment
 import com.univalle.dogapp.viewmodel.AppointmentViewModel
 
 /** HU-03: Nueva Cita. */
@@ -45,9 +46,28 @@ class NewAppointmentFragment : Fragment() {
             // (position 0 is the default "Síntomas" item)
             if (binding.spSymptoms.selectedItemPosition == 0) {
                 Toast.makeText(context, getString(R.string.select_symptom), Toast.LENGTH_SHORT).show()
+            } else {
+                saveAppointment()
             }
-            // LOGIC-04: save the appointment in Room and go to Home
         }
+    }
+
+    /**
+     * Criterion 10: the ViewModel gets a random image of the chosen breed from the Dog API,
+     * saves the appointment in Room and then emits appointmentSaved to go to Home.
+     */
+    private fun saveAppointment() {
+        val appointment = Appointment(
+            petName = binding.etPetName.text.toString().trim(),
+            breed = binding.actvBreed.text.toString().trim(),
+            ownerName = binding.etOwnerName.text.toString().trim(),
+            phone = binding.etPhone.text.toString().trim(),
+            symptom = binding.spSymptoms.selectedItem.toString(),
+            imageUrl = "" // filled by the ViewModel with the breed image
+        )
+        // Avoid saving the same appointment twice while it is being saved
+        binding.btnSaveAppointment.isEnabled = false
+        appointmentViewModel.saveAppointment(appointment)
     }
 
     /**
@@ -79,6 +99,17 @@ class NewAppointmentFragment : Fragment() {
     private fun observerViewModel() {
         observerListBreeds()
         observerProgress()
+        observerAppointmentSaved()
+    }
+
+    // Criterion 10: once saved, go to Home (HU-02), where the new appointment is listed
+    private fun observerAppointmentSaved() {
+        appointmentViewModel.appointmentSaved.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let {
+                Toast.makeText(context, getString(R.string.appointment_saved), Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_newAppointmentFragment_to_homeFragment)
+            }
+        }
     }
 
     /**
