@@ -25,6 +25,7 @@
     <string name="hint_phone">Teléfono</string>
     <string name="save_appointment">Guardar Cita</string>
     <string name="select_symptom">Selecciona un síntoma</string>
+    <string name="breeds_error">No se pudieron cargar las razas. Revisa tu conexión a internet</string>
     <string-array name="symptoms">
         <item>Síntomas</item>
         <item>Solo duerme</item>
