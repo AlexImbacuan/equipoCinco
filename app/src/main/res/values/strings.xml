@@ -13,8 +13,9 @@
     <string name="biometric_error_none_enrolled">No hay huellas registradas. Registre una en los ajustes del dispositivo</string>
     <string name="biometric_error_generic">No es posible usar la autenticación biométrica</string>
 
-    <!-- HU-02 Home (pending) -->
+    <!-- HU-02 Home -->
     <string name="home_title">Home Administrador de Citas</string>
+    <string name="admin_citas_title">Administrador de Citas</string>
 
     <!-- HU-03 Nueva Cita -->
     <string name="new_appointment_title">Nueva Cita</string>

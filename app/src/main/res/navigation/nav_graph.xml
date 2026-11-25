@@ -19,7 +19,7 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <!-- HU-02: Home Administrador de Citas (placeholder) -->
+    <!-- HU-02: Home Administrador de Citas -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.univalle.dogapp.view.fragment.HomeFragment"
@@ -29,7 +29,16 @@
         <action
             android:id="@+id/action_homeFragment_to_newAppointmentFragment"
             app:destination="@id/newAppointmentFragment" />
+        <!-- HU-04: Detalle Cita -->
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
+
+    <!-- HU-04: Detalle Cita -->
+    <fragment
+        android:id="@+id/detailFragment"
+        android:label="fragment_detail" />
 
     <!-- HU-03: Nueva Cita -->
     <fragment
