@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -38,6 +39,7 @@ class EditAppointmentFragment : Fragment() {
         setupToolbar()
         populateFields()
         setupValidation()
+        setupListeners()
         observeViewModel()
     }
 
@@ -96,8 +98,33 @@ class EditAppointmentFragment : Fragment() {
         )
     }
 
+    private fun setupListeners() {
+        binding.btnEditAppointment.setOnClickListener {
+            updateAppointment()
+        }
+    }
+
+    /**
+     * Criterion 8: copy() keeps the same id (Room needs it to know which row to update)
+     * and the symptom. The ViewModel gets a new random image of the chosen breed from the
+     * Dog API, updates the appointment in Room and then emits appointmentSaved.
+     */
+    private fun updateAppointment() {
+        val updatedAppointment = currentAppointment.copy(
+            petName = binding.etPetName.text.toString().trim(),
+            breed = binding.actvBreed.text.toString().trim(),
+            ownerName = binding.etOwnerName.text.toString().trim(),
+            phone = binding.etPhone.text.toString().trim()
+        )
+        // Avoid updating twice while it is being saved
+        binding.btnEditAppointment.isEnabled = false
+        appointmentViewModel.updateAppointment(updatedAppointment)
+    }
+
     private fun observeViewModel() {
         observeListBreeds()
+        observeProgress()
+        observeAppointmentUpdated()
     }
 
     /**
@@ -116,6 +143,22 @@ class EditAppointmentFragment : Fragment() {
                 listBreeds
             )
             binding.actvBreed.setAdapter(adapter)
+        }
+    }
+
+    private fun observeProgress() {
+        appointmentViewModel.progresState.observe(viewLifecycleOwner) { status ->
+            binding.progress.isVisible = status
+        }
+    }
+
+    // Criterion 8: once updated, go to Home (HU-02), where the edited appointment is listed
+    private fun observeAppointmentUpdated() {
+        appointmentViewModel.appointmentSaved.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let {
+                Toast.makeText(context, getString(R.string.appointment_updated), Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_editAppointmentFragment_to_homeFragment)
+            }
         }
     }
 }

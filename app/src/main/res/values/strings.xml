@@ -51,5 +51,6 @@
     <!-- HU-05 editar Cita -->
     <string name="edit_appointment_title">Editar Cita</string>
     <string name="edit_appointment_button">Editar Cita</string>
+    <string name="appointment_updated">Cita actualizada</string>
 
 </resources>

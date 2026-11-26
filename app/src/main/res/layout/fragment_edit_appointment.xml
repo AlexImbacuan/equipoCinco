@@ -127,6 +127,16 @@
                     android:enabled="false"
                     android:text="@string/edit_appointment_button"
                     app:icon="@drawable/ic_edit" />
+
+                <!-- Loading while the breed image is fetched and the appointment is updated -->
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:indeterminateTint="@color/pink"
+                    android:visibility="gone" />
             </LinearLayout>
         </ScrollView>
 
