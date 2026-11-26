@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- HU-01 Login -->
+    <color name="dark_gray">#FF24292E</color>
+    <color name="fingerprint_teal">#FF4DD0C5</color>
+
+    <!-- HU-03 Nueva Cita -->
+    <color name="pink">#FFF05861</color>
+    <color name="pink_disabled">#80F05861</color>
+    <color name="purple">#FF6200EE</color>
+    <color name="hint_gray">#FF8A8A8A</color>
+    <color name="text_disabled">#FFE0E0E0</color>
+    <!-- HU-04 Detalle Cita -->
+    <color name="dark_blue">#FF1E293B</color>
 </resources>

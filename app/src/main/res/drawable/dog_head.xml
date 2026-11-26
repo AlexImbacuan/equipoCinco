@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dog head (beagle) vector: transparent background, scales to any screen density. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="240dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+
+    <!-- Neck -->
+    <path
+        android:fillColor="#C98A4B"
+        android:pathData="M120,140 C130,180 150,215 160,240 L240,240 L240,150 C225,130 205,120 190,118 Z" />
+    <!-- Chest -->
+    <path
+        android:fillColor="#F4EFE8"
+        android:pathData="M140,240 C140,205 150,182 172,170 C196,184 206,214 210,240 Z" />
+    <!-- Head -->
+    <path
+        android:fillColor="#C98A4B"
+        android:pathData="M78,95 C78,55 108,32 142,32 C178,32 204,58 204,95 C204,130 178,155 142,155 C108,155 78,132 78,95Z" />
+    <!-- Ear -->
+    <path
+        android:fillColor="#7A4A25"
+        android:pathData="M168,46 C200,42 224,70 226,110 C228,150 216,186 197,193 C182,198 172,182 169,160 C164,125 158,80 168,46Z" />
+    <!-- White forehead blaze -->
+    <path
+        android:fillColor="#F4EFE8"
+        android:pathData="M128,34 C138,34 143,46 141,60 C139,74 129,85 118,92 L98,100 C102,80 114,54 121,40 C123,36 125,34 128,34Z" />
+    <!-- Muzzle -->
+    <path
+        android:fillColor="#F4EFE8"
+        android:pathData="M118,86 C100,84 70,91 52,103 C40,111 37,126 45,137 C55,149 80,157 104,157 C127,157 143,147 147,130 C151,111 139,90 118,86Z" />
+    <path
+        android:fillColor="#E2D6C8"
+        android:pathData="M104,157 C127,157 143,147 147,130 C140,140 125,148 104,149 C85,150 66,146 52,140 C62,151 82,157 104,157Z" />
+    <!-- Tongue -->
+    <path
+        android:fillColor="#E86F86"
+        android:pathData="M72,143 C73,159 84,168 95,166 C104,164 107,153 104,143 Z" />
+    <!-- Mouth -->
+    <path
+        android:pathData="M54,137 C70,146 92,148 114,141"
+        android:strokeWidth="3"
+        android:strokeColor="#3A2312"
+        android:strokeLineCap="round" />
+    <!-- Nose -->
+    <path
+        android:fillColor="#222222"
+        android:pathData="M36,110 C36,99 49,95 60,99 C69,103 69,116 60,121 C49,125 36,121 36,110Z" />
+    <path
+        android:fillAlpha="0.35"
+        android:fillColor="#FFFFFF"
+        android:pathData="M44,104 C47,101 52,101 54,103 C52,106 47,107 44,104Z" />
+    <!-- Eye -->
+    <path
+        android:fillColor="#3A2312"
+        android:pathData="M100,74 A10,9 0 1,0 120,74 A10,9 0 1,0 100,74Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M111,70 A3,3 0 1,0 117,70 A3,3 0 1,0 111,70Z" />
+    <!-- Eyebrow -->
+    <path
+        android:fillColor="#A8703A"
+        android:pathData="M96,62 C102,57 114,56 122,60 C114,59 104,60 96,62Z" />
+</vector>

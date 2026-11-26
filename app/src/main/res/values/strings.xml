@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">dogApp</string>
+
+    <!-- HU-01 Login -->
+    <string name="login_title">DogApp</string>
+    <string name="login_dog_image_description">Cabeza de perro</string>
+    <string name="login_fingerprint_description">Ingresar con huella digital</string>
+    <string name="biometric_prompt_title">Autenticación con Biometría</string>
+    <string name="biometric_prompt_subtitle">Ingrese su huella digital</string>
+    <string name="biometric_prompt_cancel">Cancelar</string>
+    <string name="biometric_error_no_hardware">Este dispositivo no tiene lector de huella digital</string>
+    <string name="biometric_error_unavailable">El lector de huella no está disponible en este momento</string>
+    <string name="biometric_error_none_enrolled">No hay huellas registradas. Registre una en los ajustes del dispositivo</string>
+    <string name="biometric_error_generic">No es posible usar la autenticación biométrica</string>
+
+    <!-- HU-02 Home -->
+    <string name="home_title">Home Administrador de Citas</string>
+    <string name="admin_citas_title">Administrador de Citas</string>
+
+    <!-- HU-03 Nueva Cita -->
+    <string name="new_appointment_title">Nueva Cita</string>
+    <string name="back_description">Volver</string>
+    <string name="hint_pet_name">Nombre de la Mascota</string>
+    <string name="hint_breed">Raza</string>
+    <string name="hint_owner_name">Nombre del Propietario</string>
+    <string name="hint_phone">Teléfono</string>
+    <string name="save_appointment">Guardar Cita</string>
+    <string name="select_symptom">Selecciona un síntoma</string>
+    <string name="appointment_saved">Cita guardada</string>
+    <string name="breeds_error">No se pudieron cargar las razas. Revisa tu conexión a internet</string>
+    <string-array name="symptoms">
+        <item>Síntomas</item>
+        <item>Solo duerme</item>
+        <item>No come</item>
+        <item>Fractura extremidad</item>
+        <item>Tiene pulgas</item>
+        <item>Tiene garrapatas</item>
+        <item>Bota demasiado pelo</item>
+    </string-array>
+
+    <!-- HU-04 Detalle Cita -->
+    <string name="turn_format">#%1$d</string>
+    <string name="detail_appointment_title">Detalle de la Cita</string>
+    <string name="label_owner">Propietario</string>
+    <string name="label_phone">Teléfono</string>
+    <string name="delete_appointment">Eliminar cita</string>
+    <string name="edit_appointment">Editar cita</string>
+    <string name="appointment_deleted">Cita eliminada correctamente</string>
+    <string name="edit_not_implemented">Función de edición (HU-05)</string>
+
+    <!-- HU-05 editar Cita -->
+    <string name="edit_appointment_title">Editar Cita</string>
+    <string name="edit_appointment_button">Editar Cita</string>
+    <string name="appointment_updated">Cita actualizada</string>
+
 </resources>

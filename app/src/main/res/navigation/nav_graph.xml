@@ -2,8 +2,82 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
 
-    <!-- Aquí irán los fragments: login, home, nueva cita, detalle, editar -->
+    <!-- HU-01: fingerprint login -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.univalle.dogapp.view.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <!-- Pop login off the back stack so "back" from Home does not return to it -->
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- HU-02: Home Administrador de Citas -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.univalle.dogapp.view.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <!-- HU-02 criterion 4: pink FAB opens Nueva Cita -->
+        <action
+            android:id="@+id/action_homeFragment_to_newAppointmentFragment"
+            app:destination="@id/newAppointmentFragment" />
+        <!-- HU-04: Detalle Cita -->
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <!-- HU-04: Detalle Cita -->
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.univalle.dogapp.view.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detailFragment_to_editAppointmentFragment"
+            app:destination="@id/editAppointmentFragment" />
+    </fragment>
+
+    <!-- HU-03: Nueva Cita -->
+    <fragment
+        android:id="@+id/newAppointmentFragment"
+        android:name="com.univalle.dogapp.view.fragment.NewAppointmentFragment"
+        android:label="fragment_new_appointment"
+        tools:layout="@layout/fragment_new_appointment">
+        <!-- Criterion 10: after saving go to Home; pop the old Home so it is rebuilt
+             with the new appointment and "back" does not return to the form -->
+        <action
+            android:id="@+id/action_newAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- HU-05: Editar Cita -->
+    <fragment
+        android:id="@+id/editAppointmentFragment"
+        android:name="com.univalle.dogapp.view.fragment.EditAppointmentFragment"
+        android:label="fragment_edit_appointment"
+        tools:layout="@layout/fragment_edit_appointment">
+
+        <action
+            android:id="@+id/action_editAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

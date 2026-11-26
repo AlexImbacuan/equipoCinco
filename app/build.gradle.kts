@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -52,5 +53,31 @@ dependencies {
 
     //cardview
     implementation("androidx.cardview:cardview:1.0.0")
+
+    // ViewModel + LiveData + Fragment KTX (MVVM)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
+    // Biometric authentication (HU-01 Login)
+    implementation(libs.androidx.biometric)
+
+    // Lottie animations (login fingerprint)
+    implementation(libs.lottie)
+
+    // Retrofit + Gson (Dog API, HU-03)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Room (local database, HU-03)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // Glide (image loading)
+    implementation(libs.glide)
 
 }

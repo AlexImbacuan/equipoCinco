@@ -1,8 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme: no toolbar (NoActionBar) and dark gray background. -->
     <style name="Base.Theme.DogApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/dark_gray</item>
+        <item name="android:statusBarColor" tools:targetApi="34">@color/dark_gray</item>
+        <item name="android:navigationBarColor" tools:targetApi="34">@color/dark_gray</item>
+        <!-- Light status bar icons because the background is dark -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
 
     <style name="Theme.DogApp" parent="Base.Theme.DogApp" />
