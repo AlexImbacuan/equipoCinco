@@ -24,8 +24,9 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: AppointmentAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         binding.lifecycleOwner = this
@@ -47,7 +48,7 @@ class HomeFragment : Fragment() {
     private fun setupBackPressHandler() {
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
+            object : OnBackPressedCallback(enabled = true) {
                 override fun handleOnBackPressed() {
                     requireActivity().moveTaskToBack(true)
                 }

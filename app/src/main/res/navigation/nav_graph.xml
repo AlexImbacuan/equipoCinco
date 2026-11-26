@@ -38,7 +38,15 @@
     <!-- HU-04: Detalle Cita -->
     <fragment
         android:id="@+id/detailFragment"
-        android:label="fragment_detail" />
+        android:name="com.univalle.dogapp.view.fragment.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <!-- HU-03: Nueva Cita -->
     <fragment

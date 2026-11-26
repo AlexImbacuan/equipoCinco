@@ -8,11 +8,11 @@ import com.univalle.dogapp.model.Appointment
 
 class AppointmentViewHolder(
     private val binding: ItemAppointmentBinding,
-    private val onAppointmentClick: (Appointment) -> Unit
+    private val onAppointmentClick: (Appointment) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(appointment: Appointment) {
-        binding.tvTurno.text = "#${appointment.id}"
+        binding.tvTurno.text = binding.root.context.getString(R.string.turn_format, appointment.id)
         binding.tvNombreMascota.text = appointment.petName
         binding.tvSintoma.text = appointment.symptom
 
