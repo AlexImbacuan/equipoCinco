@@ -88,9 +88,14 @@ class DetailFragment : Fragment() {
             }
         }
 
-        // Criterio 5: FAB de edición (dummy button para HU 5.0)
+        // Criterio 5: FAB de edición
         binding.fabEdit.setOnClickListener {
-            Toast.makeText(requireContext(), getString(R.string.edit_not_implemented), Toast.LENGTH_SHORT).show()
+            currentAppointment?.let { appointment ->
+                val bundle = Bundle().apply {
+                    putSerializable("cita", appointment)
+                }
+                findNavController().navigate(R.id.action_detailFragment_to_editAppointmentFragment, bundle)
+            }
         }
     }
 
