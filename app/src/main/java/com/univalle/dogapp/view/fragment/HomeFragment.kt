@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.univalle.dogapp.R
-import com.univalle.dogapp.adapter.AppointmentAdapter
+import com.univalle.dogapp.view.adapter.AppointmentAdapter
 import com.univalle.dogapp.databinding.FragmentHomeBinding
 import com.univalle.dogapp.viewmodel.AppointmentViewModel
 
