@@ -9,7 +9,7 @@ import com.univalle.dogapp.view.viewholder.AppointmentViewHolder
 
 class AppointmentAdapter(
     private var appointmentList: List<Appointment>,
-    private val onAppointmentClick: (Appointment) -> Unit
+    private val onAppointmentClick: (Appointment) -> Unit,
 ) : RecyclerView.Adapter<AppointmentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppointmentViewHolder {

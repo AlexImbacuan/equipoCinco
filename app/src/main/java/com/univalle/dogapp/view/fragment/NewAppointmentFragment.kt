@@ -24,8 +24,9 @@ class NewAppointmentFragment : Fragment() {
     private val appointmentViewModel: AppointmentViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentNewAppointmentBinding.inflate(inflater)
         binding.lifecycleOwner = this

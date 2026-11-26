@@ -13,4 +13,6 @@
     <color name="purple">#FF6200EE</color>
     <color name="hint_gray">#FF8A8A8A</color>
     <color name="text_disabled">#FFE0E0E0</color>
+    <!-- HU-04 Detalle Cita -->
+    <color name="dark_blue">#FF1E293B</color>
 </resources>

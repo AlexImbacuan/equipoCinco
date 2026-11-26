@@ -33,6 +33,10 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
     private val _appointmentSaved = MutableLiveData<Event<Unit>>()
     val appointmentSaved: LiveData<Event<Unit>> = _appointmentSaved
 
+    // One-shot event: the appointment was deleted (HU-04), navigate to Home
+    private val _appointmentDeleted = MutableLiveData<Event<Unit>>()
+    val appointmentDeleted: LiveData<Event<Unit>> = _appointmentDeleted
+
     fun getBreeds() {
         viewModelScope.launch {
             _progresState.value = true
@@ -40,6 +44,7 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
                 _listBreeds.value = appointmentRepository.getBreeds()
                 _progresState.value = false
             } catch (e: Exception) {
+                e.printStackTrace()
                 _progresState.value = false
             }
         }
@@ -57,6 +62,7 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
                 _progresState.value = false
                 _appointmentSaved.value = Event(Unit)
             } catch (e: Exception) {
+                e.printStackTrace()
                 _progresState.value = false
             }
         }
@@ -69,6 +75,7 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
                 _listAppointment.value = appointmentRepository.getListAppointment()
                 _progresState.value = false
             } catch (e: Exception) {
+                e.printStackTrace()
                 _progresState.value = false
             }
         }
@@ -80,7 +87,9 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
             try {
                 appointmentRepository.deleteAppointment(appointment)
                 _progresState.value = false
+                _appointmentDeleted.value = Event(Unit)
             } catch (e: Exception) {
+                e.printStackTrace()
                 _progresState.value = false
             }
         }
@@ -98,6 +107,7 @@ class AppointmentViewModel(application: Application) : AndroidViewModel(applicat
                 _progresState.value = false
                 _appointmentSaved.value = Event(Unit)
             } catch (e: Exception) {
+                e.printStackTrace()
                 _progresState.value = false
             }
         }
