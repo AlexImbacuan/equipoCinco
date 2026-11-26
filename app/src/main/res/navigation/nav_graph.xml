@@ -46,6 +46,9 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detailFragment_to_editAppointmentFragment"
+            app:destination="@id/editAppointmentFragment" />
     </fragment>
 
     <!-- HU-03: Nueva Cita -->
@@ -62,5 +65,11 @@
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editAppointmentFragment"
+        android:name="com.univalle.dogapp.view.fragment.EditAppointmentFragment"
+        android:label="fragment_edit_appointment"
+        tools:layout="@layout/fragment_edit_appointment" />
 
 </navigation>

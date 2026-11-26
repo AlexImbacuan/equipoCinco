@@ -47,4 +47,8 @@
     <string name="edit_appointment">Editar cita</string>
     <string name="appointment_deleted">Cita eliminada correctamente</string>
     <string name="edit_not_implemented">Función de edición (HU-05)</string>
+
+    <!-- HU-05 editar Cita -->
+    <string name="edit_appointment_title">Editar Cita</string>
+
 </resources>
